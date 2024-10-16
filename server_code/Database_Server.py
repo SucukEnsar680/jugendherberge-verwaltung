@@ -26,3 +26,11 @@ def get_jugendherbergen(rows='*'):
   res = list(cursor.execute(f'SELECT {rows} FROM jugendherbergen'))
   print(res)
   return res
+
+def get_zimmer_for_jugendgerberge(jid, columns="*"):
+  conn = sqlite3.connect(data_files['jugendherbergen_verwaltung2.db'])
+  cursor = conn.cursor()
+  res = list(cursor.execute(f'SELECT {columns} FROM zimmer WHERE JID = {jid}'))
+  print(res)
+  conn.close()
+  return res
