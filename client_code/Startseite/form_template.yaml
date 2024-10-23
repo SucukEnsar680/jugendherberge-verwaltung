@@ -19,7 +19,7 @@ components:
   - event_bindings: {change: drop_down_1_change}
     layout_properties: {grid_position: 'UXBIOS,LQUEXN ZFQXNS,JQGPZU'}
     name: drop_down_1
-    properties: {}
+    properties: {spacing_below: small}
     type: DropDown
   - layout_properties: {grid_position: 'UXBIOS,LQUEXN XWVEAO,JODMGW'}
     name: label_4
@@ -29,18 +29,22 @@ components:
     name: date_picker_1
     properties: {}
     type: DatePicker
-  - layout_properties: {grid_position: 'UXBIOS,AHXNDV HNGRQB,IJSBCC'}
-    name: drop_down_2
-    properties: {}
-    type: DropDown
-  - layout_properties: {grid_position: 'UXBIOS,AHXNDV GNUZHD,JFRRYG'}
+  - layout_properties: {grid_position: 'UXBIOS,LQUEXN EOQLRC,MIGNFD'}
     name: label_5
     properties: {text: 'Enddatum:'}
     type: Label
-  - layout_properties: {grid_position: 'UXBIOS,AHXNDV PWYJWL,GTKIBF'}
+  - layout_properties: {grid_position: 'UXBIOS,LQUEXN LQNVIC,ZQXBOQ'}
     name: date_picker_2
     properties: {}
     type: DatePicker
+  - layout_properties: {grid_position: 'UXBIOS,AHXNDV'}
+    name: drop_down_2
+    properties: {}
+    type: DropDown
+  - layout_properties: {grid_position: 'UXBIOS,AHXNDV SQGOEC,UAYHVK'}
+    name: repeating_panel_1
+    properties: {item_template: Startseite.ItemTemplate1}
+    type: RepeatingPanel
   layout_properties: {slot: default}
   name: content_panel
   properties: {col_widths: '{}'}
