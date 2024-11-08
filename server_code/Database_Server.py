@@ -19,11 +19,11 @@ def say_hello(name):
   return 42
 
 @anvil.server.callable
-def get_jugendherbergen(rows='*'):
+def get_jugendherbergen():
 
-  conn = sqlite3.connect(data_files['jugendherbergen_verwaltung2.db'])
+  conn = sqlite3.connect(data_files['datenbank.db'])
   cursor = conn.cursor()
-  res = list(cursor.execute(f'SELECT {rows} FROM jugendherbergen'))
+  res = list(cursor.execute('SELECT Name FROM tblJugendherberge'))
   print(res)
   return res
 

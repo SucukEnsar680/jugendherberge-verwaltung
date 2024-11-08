@@ -8,11 +8,28 @@ components:
   properties: {text: Startseite Jugendherberge}
   type: Label
 - components:
-  - layout_properties: {grid_position: 'BWNBYT,JBIPSE'}
+  - layout_properties: {grid_position: 'BWNBYT,JBIPSE FIKTSH,TYWZPF'}
+    name: label_6
+    properties: {text: Benutzer}
+    type: Label
+  - event_bindings: {change: drop_down_3_change}
+    layout_properties: {grid_position: 'BWNBYT,JBIPSE LJBNYO,IPFIQM'}
+    name: drop_down_3
+    properties: {}
+    type: DropDown
+  - layout_properties: {grid_position: 'BWNBYT,JBIPSE YRHYSU,FPZVIT'}
     name: label_2
     properties: {text: 'Jugendherberge:'}
     type: Label
-  - layout_properties: {grid_position: 'BWNBYT,KLOEFN'}
+  - layout_properties: {grid_position: 'BWNBYT,KLOEFN KUEZSN,GYCJND'}
+    name: label_7
+    properties: {text: Preiskategorie}
+    type: Label
+  - layout_properties: {grid_position: 'BWNBYT,KLOEFN ECOYOS,RKREJD'}
+    name: drop_down_4
+    properties: {}
+    type: DropDown
+  - layout_properties: {grid_position: 'BWNBYT,KLOEFN DNPZXX,IWPHCJ'}
     name: label_3
     properties: {text: Zimmer}
     type: Label
@@ -29,22 +46,49 @@ components:
     name: date_picker_1
     properties: {}
     type: DatePicker
-  - layout_properties: {grid_position: 'UXBIOS,LQUEXN EOQLRC,MIGNFD'}
-    name: label_5
-    properties: {text: 'Enddatum:'}
+  - layout_properties: {grid_position: 'UXBIOS,LQUEXN VTEFVN,UGVHXP'}
+    name: label_8
+    properties: {text: Benutzer}
     type: Label
-  - layout_properties: {grid_position: 'UXBIOS,LQUEXN LQNVIC,ZQXBOQ'}
-    name: date_picker_2
+  - layout_properties: {grid_position: 'UXBIOS,LQUEXN UYAPKH,IOOLDD'}
+    name: drop_down_5
     properties: {}
-    type: DatePicker
-  - layout_properties: {grid_position: 'UXBIOS,AHXNDV'}
+    type: DropDown
+  - layout_properties: {grid_position: 'UXBIOS,LQUEXN VRHMFE,XSHKWP'}
+    name: button_1
+    properties: {text: Dazu buchen}
+    type: Button
+  - layout_properties: {grid_position: 'UXBIOS,AHXNDV DPMGGM,QDASOH'}
     name: drop_down_2
     properties: {}
     type: DropDown
+  - layout_properties: {grid_position: 'UXBIOS,AHXNDV OJEMII,YTOCQM'}
+    name: label_5
+    properties: {text: 'Enddatum:'}
+    type: Label
+  - layout_properties: {grid_position: 'UXBIOS,AHXNDV APULQM,GEXJMU'}
+    name: date_picker_2
+    properties: {}
+    type: DatePicker
   - layout_properties: {grid_position: 'UXBIOS,AHXNDV SQGOEC,UAYHVK'}
     name: repeating_panel_1
     properties: {item_template: Startseite.ItemTemplate1}
     type: RepeatingPanel
+  - components:
+    - name: repeating_panel_2
+      properties: {item_template: Startseite.RowTemplate2}
+      type: RepeatingPanel
+    layout_properties: {grid_position: 'HFWMED,NTAOCZ'}
+    name: data_grid_1
+    properties:
+      columns:
+      - {data_key: column_1, id: JKSDUP, title: Name}
+      - {data_key: column_2, id: VJQQOR, title: Email}
+      - {data_key: column_3, id: OJLQEN, title: Jugendherberge}
+      - {data_key: column_1, id: NMOKHX, title: Zimmer}
+      - {data_key: column_2, id: DVRJRC, title: Startdatum}
+      - {data_key: column_3, id: JJGAIU, title: Enddatum}
+    type: DataGrid
   layout_properties: {slot: default}
   name: content_panel
   properties: {col_widths: '{}'}
