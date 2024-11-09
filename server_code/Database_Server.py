@@ -23,14 +23,16 @@ def get_jugendherbergen():
 
   conn = sqlite3.connect(data_files['datenbank.db'])
   cursor = conn.cursor()
-  res = list(cursor.execute('SELECT Name FROM tblJugendherberge'))
+  res = list(cursor.execute('SELECT Name, IDJugendherberge from tblJugendherberge'))
   print(res)
   return res
 
-def get_zimmer_for_jugendgerberge(jid, columns="*"):
-  conn = sqlite3.connect(data_files['jugendherbergen_verwaltung2.db'])
+@anvil.server.callable
+def get_user():
+  conn = sqlite3.connect(data_files['datenbank.db'])
   cursor = conn.cursor()
-  res = list(cursor.execute(f'SELECT {columns} FROM zimmer WHERE JID = {jid}'))
+  res = list(cursor.execute('SELECT Vorname || " " || Nachname, IDBenutzer from tblBenutzer'))
   print(res)
-  conn.close()
   return res
+
+@anvil.server.callable
