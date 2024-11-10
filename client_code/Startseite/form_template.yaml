@@ -71,21 +71,6 @@ components:
     name: repeating_panel_1
     properties: {item_template: Startseite.ItemTemplate1}
     type: RepeatingPanel
-  - components:
-    - name: repeating_panel_2
-      properties: {item_template: Startseite.RowTemplate2}
-      type: RepeatingPanel
-    layout_properties: {grid_position: 'HFWMED,NTAOCZ'}
-    name: data_grid_1
-    properties:
-      columns:
-      - {data_key: column_1, id: JKSDUP, title: Name}
-      - {data_key: column_2, id: VJQQOR, title: Email}
-      - {data_key: column_3, id: OJLQEN, title: Jugendherberge}
-      - {data_key: column_1, id: NMOKHX, title: Zimmer}
-      - {data_key: column_2, id: DVRJRC, title: Startdatum}
-      - {data_key: column_3, id: JJGAIU, title: Enddatum}
-    type: DataGrid
   layout_properties: {slot: default}
   name: content_panel
   properties: {col_widths: '{}'}
