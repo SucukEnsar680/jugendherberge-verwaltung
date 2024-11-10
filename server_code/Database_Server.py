@@ -36,3 +36,26 @@ def get_user():
   return res
 
 @anvil.server.callable
+def get_preiskategorie():
+  conn = sqlite3.connect(data_files['datenbank.db'])
+  cursor = conn.cursor()
+  res = list(cursor.execute('SELECT Preis || "€" as Label, IDPreiskategorie from tblPreiskategorie'))
+  print(res)
+  return res
+
+@anvil.server.callable
+def get_zimmer(JID, Pk):
+  conn = sqlite3.connect(data_files['datenbank.db'])
+  cursor = conn.cursor()
+  res = list(cursor.execute('SELECT "Zimmernummer: " || IDZimmer || "Bettenanzahl: " || MaxBettenanzahl as label, IDZimmer from tblZimmer WHERE  fkJugendherberge = ? AND fkPreiskategorie = ?', (str(JID), str(Pk))))
+  print(res)
+  return res
+
+@anvil.server.callable
+def get_preiskategorieUser(id):
+  conn = sqlite3.connect(data_files['datenbank.db'])
+  cursor = conn.cursor()
+  res = list(cursor.execute('SELECT fkPreiskategorie from tblBenutzer WHERE IDBenutzer = ?', (str(id))))
+  item = res[0][0]
+  print(item)
+  return item

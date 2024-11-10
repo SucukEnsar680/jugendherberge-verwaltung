@@ -25,7 +25,8 @@ components:
     name: label_7
     properties: {text: Preiskategorie}
     type: Label
-  - layout_properties: {grid_position: 'BWNBYT,KLOEFN ECOYOS,RKREJD'}
+  - event_bindings: {change: drop_down_4_change}
+    layout_properties: {grid_position: 'BWNBYT,KLOEFN ECOYOS,RKREJD'}
     name: drop_down_4
     properties: {}
     type: DropDown
@@ -42,7 +43,8 @@ components:
     name: label_4
     properties: {text: 'Startdatum:'}
     type: Label
-  - layout_properties: {grid_position: 'UXBIOS,LQUEXN DYIJXA,LZHUDJ'}
+  - event_bindings: {change: date_picker_1_change}
+    layout_properties: {grid_position: 'UXBIOS,LQUEXN DYIJXA,LZHUDJ'}
     name: date_picker_1
     properties: {}
     type: DatePicker
@@ -58,7 +60,8 @@ components:
     name: button_1
     properties: {text: Dazu buchen}
     type: Button
-  - layout_properties: {grid_position: 'UXBIOS,AHXNDV DPMGGM,QDASOH'}
+  - event_bindings: {change: drop_down_2_change}
+    layout_properties: {grid_position: 'UXBIOS,AHXNDV DPMGGM,QDASOH'}
     name: drop_down_2
     properties: {}
     type: DropDown
@@ -66,7 +69,8 @@ components:
     name: label_5
     properties: {text: 'Enddatum:'}
     type: Label
-  - layout_properties: {grid_position: 'UXBIOS,AHXNDV APULQM,GEXJMU'}
+  - event_bindings: {change: date_picker_2_change}
+    layout_properties: {grid_position: 'UXBIOS,AHXNDV APULQM,GEXJMU'}
     name: date_picker_2
     properties: {}
     type: DatePicker
