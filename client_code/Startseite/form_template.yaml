@@ -56,9 +56,10 @@ components:
     name: drop_down_5
     properties: {}
     type: DropDown
-  - layout_properties: {grid_position: 'UXBIOS,LQUEXN VRHMFE,XSHKWP'}
+  - event_bindings: {click: button_1_click}
+    layout_properties: {grid_position: 'UXBIOS,LQUEXN VRHMFE,XSHKWP'}
     name: button_1
-    properties: {text: Dazu buchen}
+    properties: {text: Buchen}
     type: Button
   - event_bindings: {change: drop_down_2_change}
     layout_properties: {grid_position: 'UXBIOS,AHXNDV DPMGGM,QDASOH'}

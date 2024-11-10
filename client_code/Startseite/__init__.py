@@ -34,10 +34,23 @@ class Startseite(StartseiteTemplate):
 
   def date_picker_2_change(self, **event_args):
     self.date_picker_1.max_date = self.date_picker_2.date
-    
-    
-  
 
+  def button_1_click(self, **event_args):
+    if (self.date_picker_1.date == None or self.date_picker_2.date == None):
+      print("Bitte alle Felder ausfüllen")
+    else:
+      buchungDaten = self.buchung()
+
+
+  
+def buchung(self):
+  JID = self.drop_down_1.selected.value
+  BID = self.drop_down_3.selected.value
+  PKID = self.drop_down_4.selected.value
+  ZID = self.drop_down_2.selected.value
+  start = self.date_picker_1.date
+  end = self.date_picker_2.date
+  return [JID, BID, PKID, ZID, start, end]
  
     
     
