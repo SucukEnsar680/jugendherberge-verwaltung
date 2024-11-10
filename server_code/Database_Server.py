@@ -59,3 +59,12 @@ def get_preiskategorieUser(id):
   item = res[0][0]
   print(item)
   return item
+
+@anvil.server.callable
+def get_user2(id):
+  conn = sqlite3.connect(data_files['datenbank.db'])
+  cursor = conn.cursor()
+  res = list(cursor.execute('SELECT Vorname || " " || Nachname, IDBenutzer from tblBenutzer WHERE IDBenutzer != ? ', (str(id))))
+  print(res)
+  return res
+
