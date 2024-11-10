@@ -61,10 +61,20 @@ def get_preiskategorieUser(id):
   return item
 
 @anvil.server.callable
-def get_user2(id):
+def buchung_eintrag(buchung_daten):
   conn = sqlite3.connect(data_files['datenbank.db'])
   cursor = conn.cursor()
-  res = list(cursor.execute('SELECT Vorname || " " || Nachname, IDBenutzer from tblBenutzer WHERE IDBenutzer != ? ', (str(id))))
-  print(res)
-  return res
-
+  cursor.execute('INSERT INTO tblBuchung (Startzeit, Endzeit, fkZimmer) VALUES (?,?,?)',(buchung_daten[5],buchung_daten[6], buchung_daten[4]))
+  conn.commit()
+  idBuchung = cursor.fetchone()[0]
+  cursor.execute(
+      '''
+      INSERT INTO tblBuchungBenutzer
+      (IDBenutzer, IDBuchung, Benutzerrolle)
+      VALUES (?,?,?);
+      ''',
+    (buchung_daten[0], idBuchung, 'Ersteller')
+  )
+  conn.commit()
+  conn.close()
+  

@@ -48,14 +48,6 @@ components:
     name: date_picker_1
     properties: {}
     type: DatePicker
-  - layout_properties: {grid_position: 'UXBIOS,LQUEXN VTEFVN,UGVHXP'}
-    name: label_8
-    properties: {text: Benutzer}
-    type: Label
-  - layout_properties: {grid_position: 'UXBIOS,LQUEXN UYAPKH,IOOLDD'}
-    name: drop_down_5
-    properties: {}
-    type: DropDown
   - event_bindings: {click: button_1_click}
     layout_properties: {grid_position: 'UXBIOS,LQUEXN VRHMFE,XSHKWP'}
     name: button_1
