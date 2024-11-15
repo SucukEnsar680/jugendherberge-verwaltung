@@ -24,16 +24,18 @@ class Startseite(StartseiteTemplate):
     
   def drop_down_3_change(self, **event_args):
     self.drop_down_4.selected_value = anvil.server.call('get_preiskategorieUser', self.drop_down_3.selected_value)
-    self.drop_down_5.items = anvil.server.call('get_user2', self.drop_down_1.selected_value)
     self.drop_down_2.items = anvil.server.call('get_zimmer', self.drop_down_1.selected_value, self.drop_down_4.selected_value)
-  def jugendherbergen_change(self, **event_args):
+  def drop_down_1_change(self, **event_args):
     self.drop_down_2.items = anvil.server.call('get_zimmer', self.drop_down_1.selected_value, self.drop_down_4.selected_value)
 
   def date_picker_1_change(self, **event_args):
     self.date_picker_2.min_date = self.date_picker_1.date 
+    
 
   def date_picker_2_change(self, **event_args):
-    self.date_picker_1.max_date = self.date_picker_2.date
+    if (self.date_picker_1.date == None):
+      self.date_picker_1.max_date = self.date_picker_2.date
+    
 
   def button_1_click(self, **event_args):
     if (self.date_picker_1.date == None or self.date_picker_2.date == None):
