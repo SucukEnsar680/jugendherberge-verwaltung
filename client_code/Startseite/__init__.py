@@ -26,7 +26,7 @@ class Startseite(StartseiteTemplate):
     self.drop_down_4.selected_value = anvil.server.call('get_preiskategorieUser', self.drop_down_3.selected_value)
     self.drop_down_5.items = anvil.server.call('get_user2', self.drop_down_1.selected_value)
     self.drop_down_2.items = anvil.server.call('get_zimmer', self.drop_down_1.selected_value, self.drop_down_4.selected_value)
-  def drop_down_1_change(self, **event_args):
+  def jugendherbergen_change(self, **event_args):
     self.drop_down_2.items = anvil.server.call('get_zimmer', self.drop_down_1.selected_value, self.drop_down_4.selected_value)
 
   def date_picker_1_change(self, **event_args):
