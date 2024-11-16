@@ -10,7 +10,7 @@ class Startseite(StartseiteTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    self.selected_guests = []
+    
     # Any code you write here will run before the form opens.
     self.drop_down_1.items = anvil.server.call('get_jugendherbergen')
     self.drop_down_3.items = anvil.server.call('get_user')
@@ -19,11 +19,6 @@ class Startseite(StartseiteTemplate):
     self.drop_down_4.selected_value = anvil.server.call('get_preiskategorieUser', self.drop_down_3.selected_value)
     self.drop_down_5.items = anvil.server.call('get_more_user')
     
-
-    self.update_repeating_panel()
-
-  def update_repeating_panel(self):
-      self.repeating_panel_guests.items = self.selected_guests
   
   def drop_down_4_change(self, **event_args):
     self.drop_down_2.items = anvil.server.call('get_zimmer', self.drop_down_1.selected_value, self.drop_down_4.selected_value)
@@ -67,21 +62,14 @@ class Startseite(StartseiteTemplate):
 
   def button_2_click(self, **event_args):
     selected_guest = self.drop_down_5.selected_value
-    selected_item = self.drop_down_3.selected_item
     if (selected_guest == self.drop_down_3.selected_value):
       alert("Sie können sich nicht selber hinzufügen!")
       return
-
-    if any(guest['id'] == selected_guest for guest in self.selected_guests):
-            alert("Dieser Gast wurde bereits hinzugefügt.")
-            return
+    self.repeating_panel_guests.items = selected_guest
+    
 
     
-    self.selected_guests.append({
-        'id': selected_guest,
-        'name': self.drop_down_3.selected_value
-    })
-    self.update_repeating_panel()
+    
  
     
     
