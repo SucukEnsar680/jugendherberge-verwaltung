@@ -48,10 +48,18 @@ components:
     name: date_picker_1
     properties: {}
     type: DatePicker
-  - event_bindings: {click: button_1_click}
-    layout_properties: {grid_position: 'UXBIOS,LQUEXN VRHMFE,XSHKWP'}
-    name: button_1
-    properties: {text: Buchen}
+  - layout_properties: {grid_position: 'UXBIOS,LQUEXN HPCKXH,ZDICXB'}
+    name: label_8
+    properties: {text: 'Benutzer mit buchen:'}
+    type: Label
+  - layout_properties: {grid_position: 'UXBIOS,LQUEXN OOZAVO,LUBVER'}
+    name: repeating_panel_2
+    properties: {item_template: Startseite.ItemTemplate2}
+    type: RepeatingPanel
+  - event_bindings: {click: button_2_click}
+    layout_properties: {grid_position: 'UXBIOS,LQUEXN XIDVAG,CLTLUU'}
+    name: button_2
+    properties: {text: hinzufügen}
     type: Button
   - event_bindings: {change: drop_down_2_change}
     layout_properties: {grid_position: 'UXBIOS,AHXNDV DPMGGM,QDASOH'}
@@ -71,6 +79,11 @@ components:
     name: repeating_panel_1
     properties: {item_template: Startseite.ItemTemplate1}
     type: RepeatingPanel
+  - event_bindings: {click: button_1_click}
+    layout_properties: {full_width_row: false, grid_position: 'VYSGBC,KIFQNN', row_background: ''}
+    name: button_1
+    properties: {text: Jetzt Buchen}
+    type: Button
   layout_properties: {slot: default}
   name: content_panel
   properties: {col_widths: '{}'}

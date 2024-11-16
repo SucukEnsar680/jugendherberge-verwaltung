@@ -61,6 +61,13 @@ def get_preiskategorieUser(id):
   return item
 
 @anvil.server.callable
+def get_more_user():
+  conn = sqlite3.connect(data_files['datenbank_jugendherbergen.db'])
+  cursor = conn.cursor()
+  res = list(cursor.execute('SELECT Vorname || " " || Nachname, GID from tblGast'))
+  return res
+
+@anvil.server.callable
 def buchung_eintrag(buchung_daten):
   conn = sqlite3.connect(data_files['datenbank_jugendherbergen.db'])
   cursor = conn.cursor()
