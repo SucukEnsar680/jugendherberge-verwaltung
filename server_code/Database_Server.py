@@ -79,8 +79,15 @@ def buchung_eintrag(buchung_daten):
   conn.commit()
   conn.close()
 
-#@anvil.server.callable
-#def get_all_buchung():
+@anvil.server.callable
+def get_view():
+  conn = sqlite3.connect(data_files['datenbank_jugendherbergen.db'])
+  cursor = conn.cursor()
+  cursor.execute('SELECT * FROM BuchungsAnzeige')
+  rows = cursor.fetchall()
+  conn.close()
+  return rows
+  
   
   
   

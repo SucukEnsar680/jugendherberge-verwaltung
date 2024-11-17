@@ -19,6 +19,9 @@ class Startseite(StartseiteTemplate):
     self.drop_down_2.items = anvil.server.call('get_zimmer', self.drop_down_1.selected_value, self.drop_down_4.selected_value)
     self.drop_down_4.selected_value = anvil.server.call('get_preiskategorieUser', self.drop_down_3.selected_value)
     self.drop_down_5.items = anvil.server.call('get_more_user')
+
+    self.label_9.text = anvil.server.call('get_view')
+    
     
     
   
@@ -49,7 +52,9 @@ class Startseite(StartseiteTemplate):
     else:
       buchungDaten = self.buchung()
       anvil.server.call('buchung_eintrag',buchungDaten)
-    anvil.server.call('probe')
+      alert("Buchung erfolgreich!")
+      self.label_9.text = anvil.server.call('get_view')   
+    
     
 
   
