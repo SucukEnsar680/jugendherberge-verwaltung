@@ -19,8 +19,7 @@ class Startseite(StartseiteTemplate):
     self.drop_down_2.items = anvil.server.call('get_zimmer', self.drop_down_1.selected_value, self.drop_down_4.selected_value)
     self.drop_down_4.selected_value = anvil.server.call('get_preiskategorieUser', self.drop_down_3.selected_value)
     self.drop_down_5.items = anvil.server.call('get_more_user')
-    buchungen = anvil.server.call('get_all_buchung')
-    self.repeating_panel_1.items = buchungen
+    
     
   
   def drop_down_4_change(self, **event_args):
@@ -44,7 +43,9 @@ class Startseite(StartseiteTemplate):
 
   def button_1_click(self, **event_args):
     if (self.date_picker_1.date == None or self.date_picker_2.date == None):
-      print("Bitte alle Felder ausfüllen")
+      alert("Bitte alle Felder ausfüllen")
+    elif(self.date_picker_1.date==self.date_picker_2.date):
+      alert("Sie müssen für mindestens ein Tag buchen!")
     else:
       buchungDaten = self.buchung()
       anvil.server.call('buchung_eintrag',buchungDaten)

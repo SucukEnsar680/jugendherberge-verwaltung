@@ -79,48 +79,9 @@ def buchung_eintrag(buchung_daten):
   conn.commit()
   conn.close()
 
-@anvil.server.callable
-def get_all_buchung():
-  conn = sqlite3.connect(data_files['datenbank_jugendherbergen.db'])
-  cursor = conn.cursor()
-  cursor.execute('''
-        SELECT 
-            tblBucht.BID,
-            tblBucht.DatumStart,
-            tblBucht.DatumEnde,
-            tblGast.Vorname || " " || tblGast.Nachname AS Gastname,
-            tblZimmer.ZID,
-            tblJugendherberge.Name AS Jugendherberge,
-            tblPreiskategorie.Name AS Preiskategorie
-        FROM 
-            tblBucht
-        JOIN 
-            tblGast ON tblBucht.fkGID = tblGast.GID
-        JOIN 
-            tblZimmer ON tblBucht.fkZID = tblZimmer.ZID
-        JOIN 
-            tblJugendherberge ON tblBucht.fkJID = tblJugendherberge.JID
-        JOIN 
-            tblPreiskategorie ON tblBucht.fkPID = tblPreiskategorie.PID
-    ''')
-    
-    # Ergebnisse abrufen
-  result = cursor.fetchall()
-  conn.close()
-
-    # Ergebnisse formatieren und zurückgeben
-  return [
-      {
-          "BID": row[0],
-          "DatumStart": row[1],
-          "DatumEnde": row[2],
-          "Gastname": row[3],
-          "Zimmernummer": row[4],
-          "Jugendherberge": row[5],
-          "Preiskategorie": row[6],
-      }
-      for row in result
-  ]
+#@anvil.server.callable
+#def get_all_buchung():
+  
   
   
   

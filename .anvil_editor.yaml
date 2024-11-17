@@ -9,6 +9,7 @@ unique_ids:
     Startseite.ItemTemplate3: '1731863656106602629449686.5001'
     Startseite.RowTemplate1: '1729073563844343986017477.6308'
     Startseite.RowTemplate2: '1731064079884447910545979.82715'
+    Startseite.RowTemplate3: '1731869015816806685747825.7332'
   modules: {}
   scripts: {}
   server_modules:
