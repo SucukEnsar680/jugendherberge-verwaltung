@@ -61,10 +61,6 @@ components:
     name: button_2
     properties: {text: hinzufügen}
     type: Button
-  - layout_properties: {grid_position: 'UXBIOS,LQUEXN OOZAVO,LUBVER'}
-    name: repeating_panel_guests
-    properties: {item_template: Startseite.ItemTemplate2}
-    type: RepeatingPanel
   - event_bindings: {change: drop_down_2_change}
     layout_properties: {grid_position: 'UXBIOS,AHXNDV DPMGGM,QDASOH'}
     name: drop_down_2

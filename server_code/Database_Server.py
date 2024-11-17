@@ -71,17 +71,21 @@ def get_more_user():
 def buchung_eintrag(buchung_daten):
   conn = sqlite3.connect(data_files['datenbank_jugendherbergen.db'])
   cursor = conn.cursor()
-  cursor.execute('INSERT INTO tblBuchung (Startzeit, Endzeit, fkZimmer) VALUES (?,?,?)',(buchung_daten[5],buchung_daten[6], buchung_daten[4]))
+  cursor.execute('INSERT INTO tblBucht (fkGID, fkZID, fkJID, fkPID, DatumStart, DatumEnde) VALUES (?,?,?,?,?,?)',(buchung_daten[1],buchung_daten[3], buchung_daten[0], buchung_daten[2], buchung_daten[4], buchung_daten[5]))
   conn.commit()
-  idBuchung = cursor.fetchone()[0]
-  cursor.execute(
-      '''
-      INSERT INTO tblBuchungBenutzer
-      (IDBenutzer, IDBuchung, Benutzerrolle)
-      VALUES (?,?,?);
-      ''',
-    (buchung_daten[0], idBuchung, 'Ersteller')
-  )
+  bid = cursor.lastrowid
+  for item in buchung_daten[6]:
+    cursor.execute('INSERT INTO tblBuchtMIT (fkGID, fkBID) VALUES (?,?)', (item,bid))
   conn.commit()
   conn.close()
+
+@anvil.server.callable
+def probe():
+  conn = sqlite3.connect(data_files['datenbank_jugendherbergen.db'])
+  cursor = conn.cursor()
+  res = list(cursor.execute('SELECT * from tblBuchtMit'))
+  print(res)
+  return res
+  
+  
   

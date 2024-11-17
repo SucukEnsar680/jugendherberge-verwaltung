@@ -10,7 +10,8 @@ class Startseite(StartseiteTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    
+
+    self.extraGuest = []
     # Any code you write here will run before the form opens.
     self.drop_down_1.items = anvil.server.call('get_jugendherbergen')
     self.drop_down_3.items = anvil.server.call('get_user')
@@ -45,27 +46,36 @@ class Startseite(StartseiteTemplate):
     else:
       buchungDaten = self.buchung()
       anvil.server.call('buchung_eintrag',buchungDaten)
-    return buchungDaten
+    anvil.server.call('probe')
+    
 
   
 
 
   
-#def buchung(self):
- # JID = self.drop_down_1.selected.value
-  #BID = self.drop_down_3.selected.value
-  #PKID = self.drop_down_4.selected.value
-  #ZID = self.drop_down_2.selected.value
-#  start = self.date_picker_1.date
- # end = self.date_picker_2.date
-  #return [JID, BID, PKID, ZID, start, end]
+  def buchung(self):
+    JID = self.drop_down_1.selected_value
+    GID = self.drop_down_3.selected_value
+    PID = self.drop_down_4.selected_value
+    ZID = self.drop_down_2.selected_value
+    start = self.date_picker_1.date
+    end = self.date_picker_2.date
+    EGID = self.extraGuest
+    return [JID, GID, PID, ZID, start, end, EGID]
 
   def button_2_click(self, **event_args):
     selected_guest = self.drop_down_5.selected_value
     if (selected_guest == self.drop_down_3.selected_value):
       alert("Sie können sich nicht selber hinzufügen!")
       return
-    self.repeating_panel_guests.items = selected_guest
+    for item in self.extraGuest:
+      if (item == selected_guest):
+        alert("Dieser User wurde bereits hinzugefügt!")
+        return
+    self.extraGuest.append(selected_guest)
+    alert("Benutzer wurde erfolgreich hinzugefügt!")
+
+  
     
 
     
